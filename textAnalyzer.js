@@ -10,17 +10,14 @@ const { load } = require('cheerio');
 // Grabs the command line argument. 
 const [,, url] = process.argv;
 
-
 let loadText = (body) => {
 	const $ = load(body);
 	return $('div.dropcap').children('p').text()
 };
 
-
 let parseText = (textToParse) => {
 	return textToParse.split('.');
 };
-
 
 let rankSentence = (text) => {
 
@@ -82,7 +79,7 @@ server.on('request', (req, res) => {
 
 		
 
-		res.end(t);
+		res.end($.html());
 	})
 });
 
