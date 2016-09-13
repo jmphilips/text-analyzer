@@ -1,0 +1,20 @@
+{
+    "settings": {
+        "badWords": [
+            "for",
+            "by",
+            "an",
+            "and",
+            "on",
+            "of",
+            "the",
+            "then",
+            "with",
+            "a",
+            "how",
+            "that",
+            "there"
+        ],
+        "minRank": ".824"
+    }
+}

@@ -1,0 +1,20 @@
+doctype html
+html
+    head
+        title Text-Analyzer
+        link(rel='stylesheet', href='/lib/bootstrap/dist/css/bootstrap.min.css')
+        link(rel='stylesheet', href='/css/main.css')
+    body
+        .container
+            h1 Pitchfork Article Analyzer
+            h3 Because nobody has time for that
+            p Paste a pitchfork article url in the input box below to see a reduced version.             
+            form(method='POST')
+                .form-group
+                    label(for='name') url
+                    input.form-control#url(type='text' name='url' placeholder='http://')
+                .contact-form__submit
+                    input.btn.btn-success.btn-lg(type='submit' value='Reduce')
+        script(src='/lib/jquery/dist/jquery.min.js')
+        script(src='/lib/bootstrap/dist/js/bootstrap.min.js')
+        script(src='textAnalyzer.js')
