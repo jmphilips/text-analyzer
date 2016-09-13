@@ -1,0 +1,27 @@
+doctype html
+html
+    head
+        title Ain't nobody got time
+        link(rel='stylesheet', href='/lib/bootstrap/dist/css/bootstrap.min.css')
+        link(rel='stylesheet', href='/css/main.css')
+    body
+        .container
+            h1 #{reviewTitle}
+            h3 #{reviewScore}/10
+            h3 #{reviewArtist}
+            p The reduced version is #{percentOfOriginal}% of the original paragraph and saves the average reader #{timeSaved} minutes of reading
+            p Original Read Time: #{originalReadTime} minutes
+            p Reduced Read Time: #{reducedReadTime} minutes
+            p Original Word Count: #{originalLength} words
+            p Reduced Word Count: #{reducedLength} words
+            .container.col-sm-6 
+                h3.text-center Reduced 
+                p #{newParagraph}
+            .container.col-sm-6 
+                h3.text-center Original
+                p #{rawHTML}
+            
+        script(src='/lib/jquery/dist/jquery.min.js')
+        script(src='/lib/bootstrap/dist/js/bootstrap.min.js')
+        script(src='textAnalyzer.js')
+
