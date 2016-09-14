@@ -8,7 +8,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node textAnalyzer.js"
+    "start": "node textAnalyzer.js",
+    "postinstall": "bower install"
   },
   "author": "",
   "license": "ISC",
