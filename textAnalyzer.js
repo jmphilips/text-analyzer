@@ -12,6 +12,8 @@ const express = require('express')
 const bodyParser = require('body-parser')
 
 const app = express();
+const port = process.env.PORT || 3000;
+app.set('port', port)
 
 app.set('view engine', 'pug')
 app.use(express.static('public'))
@@ -180,4 +182,4 @@ app.get('/layout', (req, res) => {
 	} else {console.log("why?")}
 })
 
-app.listen(3000);
+app.listen(app.get('port'));
