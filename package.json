@@ -22,7 +22,6 @@
   "devDependencies": {
     "bower": "^1.7.9",
     "express": "^4.14.0",
-    "js-htmlencode": "^0.2.0",
     "pug": "^2.0.0-beta6"
   }
 }

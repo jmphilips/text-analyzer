@@ -7,7 +7,6 @@ const { get } = require('request');
 // const { createServer } = require('http');
 const { load } = require('cheerio');
 const config = require('./config.json');
-const { htmlDecode, htmlEncode } = require('js-htmlencode');
 const express = require('express')
 const bodyParser = require('body-parser')
 
