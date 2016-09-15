@@ -4,11 +4,10 @@
 
 // dependencies 
 const { get } = require('request');
-// const { createServer } = require('http');
 const { load } = require('cheerio');
 const config = require('./config.json');
-const express = require('express')
-const bodyParser = require('body-parser')
+const express = require('express');
+const bodyParser = require('body-parser');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -18,14 +17,7 @@ app.set('view engine', 'pug')
 app.use(express.static('public'))
 app.use(bodyParser.urlencoded({ extended: false}))
 
-// Grabs the command line argument. 
-const [,, url] = process.argv;
-
-// scrapes the targeted web page and grabs the html
-const loadHTML = (body) => {
-	const $ = load(body);
-	return $('div.dropcap').html();
-};
+// scrapes the targeted web page and grabs elements from the html page
 
 const loadH1FromPage = body => {
 	const $ = load(body)
@@ -122,7 +114,6 @@ const readEstimatorByMinute = (paragraphLength) => {
 	return Math.floor(paragraphLength / 180) + 1
 }; 
 
-
 const infoObjectMaker = (paragraph) => {
 
 	let originalLength = paragraphWordCounter(loadText(paragraph));
@@ -137,9 +128,6 @@ const infoObjectMaker = (paragraph) => {
 	};
 };
 
-const urlUniformChecker = (url) => {
-	return url.slice(0, 7) === "http://" ? url : "http://" + url
-}
 
 app.get('/', (req, res) => {
 	res.render('index')
@@ -147,18 +135,14 @@ app.get('/', (req, res) => {
 
 let urlInput = null;
 
-app.post('/', (req, res) => {
-	
+app.post('/', (req, res) => {	
 	urlInput = req.body.url;
-
 	res.redirect('/layout')
 })
 
 app.get('/layout', (req, res) => {
 	if (urlInput) {
 		
-	// let urlVar = urlUniformChecker(urlInput.slice(1))
-
 	get(urlInput, (err, _, body) => {
 			let rawHTML = loadText(body);
 		
