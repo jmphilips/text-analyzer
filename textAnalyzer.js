@@ -114,6 +114,9 @@ const readEstimatorByMinute = (paragraphLength) => {
 	return Math.floor(paragraphLength / 180) + 1
 }; 
 
+// This function takes in the before and after values of the paragraph and outputs then 
+// compares the before and after reading length and word count.  The function returns an 
+// object that 
 const infoObjectMaker = (paragraph) => {
 
 	let originalLength = paragraphWordCounter(loadText(paragraph));
@@ -128,7 +131,7 @@ const infoObjectMaker = (paragraph) => {
 	};
 };
 
-
+// Routes
 app.get('/', (req, res) => {
 	res.render('index')
 })
@@ -144,6 +147,9 @@ app.get('/layout', (req, res) => {
 	if (urlInput) {
 		
 	get(urlInput, (err, _, body) => {
+
+			// This is where all of the data is taken and then passed to Pug. 
+
 			let rawHTML = loadText(body);
 		
 			let statsObject = infoObjectMaker(body)
